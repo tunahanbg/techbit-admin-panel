@@ -1,99 +1,98 @@
-# TechBit Yönetim Paneli
+# TechBit Admin Panel
 
-TechBit startup'ı için rol tabanlı bir yönetim paneli.
+A role-based administration panel for the TechBit startup.
 
-## Özellikler
+## Features
 
-* PostgreSQL ile kullanıcı kimlik doğrulama
-* Rol tabanlı erişim kontrolü (admin, devops, developer, documentation)
-* Kullanıcı yönetimi (admin)
-* Servis erişimi ve yönetimi
+* User authentication with PostgreSQL
+* Role-based access control (admin, devops, developer, documentation)
+* User management (admin)
+* Service access and management
 
-## Kurulum
+## Installation
 
-### Gereksinimler
+### Requirements
 
-* Docker ve Docker Compose
-* Node.js (yerel geliştirme için)
+* Docker and Docker Compose
+* Node.js (for local development)
 
-### Docker ile Kurulum
+### Docker Setup
 
-1. Projeyi klonlayın:
-   ```
+1. Clone the project:
+```
    git clone https://github.com/your-username/techbit-admin.git
    cd techbit-admin
-   ```
-2. Docker Compose ile başlatın:
-   ```
+```
+2. Start with Docker Compose:
+```
    docker-compose up -d
-   ```
-3. Tarayıcınızda** **`http://localhost:3000` adresine gidin.
+```
+3. Navigate to `http://localhost:3000` in your browser.
 
-### Nginx ile Kurulum
+### Nginx Setup
 
-1. Nginx yapılandırma dosyasını** **`/etc/nginx/sites-available/` dizinine kopyalayın:
-   ```
+1. Copy the Nginx configuration file to `/etc/nginx/sites-available/`:
+```
    sudo cp nginx.conf /etc/nginx/sites-available/techbit
-   ```
-2. Siteyi etkinleştirin:
-   ```
+```
+2. Enable the site:
+```
    sudo ln -s /etc/nginx/sites-available/techbit /etc/nginx/sites-enabled/
-   ```
-3. Nginx yapılandırmasını test edin:
-   ```
+```
+3. Test the Nginx configuration:
+```
    sudo nginx -t
-   ```
-4. Nginx'i yeniden başlatın:
-   ```
+```
+4. Restart Nginx:
+```
    sudo systemctl restart nginx
-   ```
-5. Tarayıcınızda** **`http://techbit.local` adresine gidin (veya yapılandırmada belirttiğiniz domain adına).
+```
+5. Navigate to `http://techbit.local` in your browser (or the domain specified in the configuration).
 
-## Kullanım
+## Usage
 
-### Varsayılan Kullanıcılar
+### Default Users
 
-Aşağıdaki kullanıcılar sistemde varsayılan olarak tanımlıdır:
+The following users are predefined in the system:
 
-* **Admin** : yaltay / password123
-* **DevOps** : tbuyukgebiz / password123
-* **Developer** : ngok / password123
-* **Documentation** : egenc / password123
+* **Admin**: yaltay / password123
+* **DevOps**: tbuyukgebiz / password123
+* **Developer**: ngok / password123
+* **Documentation**: egenc / password123
 
-### Servisler
+### Services
 
-Kullanıcı rolüne göre aşağıdaki servislere erişim sağlanabilir:
+The following services are accessible based on user roles:
 
-* GitLab (Kod Yönetimi & CI/CD)
-* DokuWiki (Dokümantasyon)
-* PostgreSQL (Veritabanı)
-* Nagios ve Munin (İzleme)
+* GitLab (Code Management & CI/CD)
+* DokuWiki (Documentation)
+* PostgreSQL (Database)
+* Nagios and Munin (Monitoring)
 * Email (Postfix & Dovecot)
-* Etherpad (İşbirlikçi Metin Editörü)
-* Elastic (Arama)
-* Portainer (Container Yönetimi)
+* Etherpad (Collaborative Text Editor)
+* Elastic (Search)
+* Portainer (Container Management)
 
-## Geliştirme
+## Development
 
-1. Bağımlılıkları yükleyin:
-   ```
+1. Install dependencies:
+```
    npm install
-   ```
-2. Geliştirme modunda başlatın:
-   ```
+```
+2. Start in development mode:
+```
    npm run dev
-   ```
+```
 
-## PostgreSQL Veritabanı
+## PostgreSQL Database
 
-PostgreSQL veritabanına erişmek için:
-
+To access the PostgreSQL database:
 ```
 psql -h localhost -U techbit -d techbit_db
 ```
 
-Varsayılan şifre:** **`techbit123`
+Default password: `techbit123`
 
-## Lisans
+## License
 
 MIT
